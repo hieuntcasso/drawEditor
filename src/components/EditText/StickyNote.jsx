@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { Group, Rect } from "react-konva";
 import { EditableText } from "./EditableText";
+
+
 
 export function StickyNote({
     colour,
@@ -15,6 +17,8 @@ export function StickyNote({
     selected,
     onTextClick
 }) {
+
+  
     const [isEditing, setIsEditing] = useState(false);
     const [isTransforming, setIsTransforming] = useState(false);
 

@@ -1,5 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { Text, Transformer } from "react-konva";
+
+
 
 export function ResizableText({
     x,
@@ -9,8 +11,10 @@ export function ResizableText({
     width,
     onResize,
     onClick,
-    onDoubleClick
+    onDoubleClick,
+
 }) {
+ 
     const textRef = useRef(null);
     const transformerRef = useRef(null);
 
@@ -30,6 +34,7 @@ export function ResizableText({
                 width: newWidth,
                 scaleX: 1
             });
+            console.log(newWidth, newHeight);
             onResize(newWidth, newHeight);
         }
     }
@@ -46,7 +51,9 @@ export function ResizableText({
             }}
         />
     ) : null;
-
+    const handleAll = (e) => {
+        console.log(e);
+    }
     return (
         <>
             <Text
@@ -64,7 +71,8 @@ export function ResizableText({
                 onDblClick={onDoubleClick}
                 onDblTap={onDoubleClick}
                 width={width}
-                draggable
+                draggable={true}
+            // onDragEnd={onDragEnd}
             />
             {transformer}
         </>

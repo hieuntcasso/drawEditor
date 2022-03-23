@@ -1,15 +1,25 @@
+import { forwardRef,useImperativeHandle,useRef ,useState} from 'react'
+import TextFieldsIcon from '@material-ui/icons/TextFields';
+
+const MenuIcon = (props, ref) => {
+
+    
+    const [icon, setIcon] = useState('');
 
 
-
-const MenuIcon = () => {
-
+   
+    const handleText = () => {
+        setIcon(icon ? '': 'text')
+    }
 
     return (
-        <div>
-            {/* <TextFieldsIcon /> */}
-            
+        <div >
+            <span onClick={handleText}>
+                <TextFieldsIcon />
+            </span>
+
         </div>
     )
 }
 
-export default MenuIcon;
+export default forwardRef(MenuIcon)
